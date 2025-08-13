@@ -31,6 +31,8 @@ function RootLayoutNav() {
       <Stack.Screen name="budget" options={{ headerShown: false }} />
       <Stack.Screen name="date-ideas" options={{ headerShown: false }} />
       <Stack.Screen name="gallery" options={{ headerShown: false }} />
+      <Stack.Screen name="message-board" options={{ headerShown: false }} />
+      <Stack.Screen name="location" options={{ headerShown: false }} />
     </Stack>
   );
 }

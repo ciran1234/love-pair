@@ -44,7 +44,7 @@ export default function AnniversaryPage() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>🎉 纪念日</Text>
+        <Text style={styles.title}>🐼 小熊猫的纪念日</Text>
         <Text style={styles.subtitle}>记录我们的美好时光</Text>
       </View>
 

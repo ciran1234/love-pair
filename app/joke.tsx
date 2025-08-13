@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../lib/auth-context';
-import { jokeService } from '../lib/database';
+import { DatabaseService } from '../lib/database';
 
 export default function JokePage() {
   const { user } = useAuth();
@@ -57,7 +57,7 @@ export default function JokePage() {
     
     setLoading(true);
     try {
-      const userJokes = await jokeService.getJokes(user.id);
+      const userJokes = await DatabaseService.getJokes(user.id);
       setJokes(userJokes || []);
     } catch (error) {
       console.error('加载笑话失败:', error);
@@ -79,7 +79,7 @@ export default function JokePage() {
     if (!user) return;
     
     try {
-      await jokeService.addJoke(user.id, content, category);
+      await DatabaseService.addJoke(user.id, content, category);
       Alert.alert('成功', '笑话已保存！');
       loadJokes(); // 重新加载笑话列表
     } catch (error) {
@@ -94,7 +94,7 @@ export default function JokePage() {
     }
 
     try {
-      await jokeService.addJoke(user.id, newJoke.trim(), jokeCategory);
+      await DatabaseService.addJoke(user.id, newJoke.trim(), jokeCategory);
       setNewJoke('');
       setShowAddModal(false);
       Alert.alert('成功', '自定义笑话已保存！');
@@ -116,7 +116,7 @@ export default function JokePage() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>😄 笑话生成器</Text>
+        <Text style={styles.title}>🐼 小熊猫的笑话生成器</Text>
         <Text style={styles.subtitle}>让小熊猫逗你开心</Text>
       </View>
 
